@@ -38,9 +38,20 @@ export default function Sidebar() {
           <div style={{ fontSize: '13px', color: 'var(--text-primary)', fontWeight: 500 }}>
             Eniola Alex
           </div>
-          <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '2px' }}>
-            Clarit Studio
-          </div>
+          <a
+            href="https://clarit.studio"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontSize: '11px',
+              color: 'var(--text-secondary)',
+              marginTop: '2px',
+              display: 'inline-block',
+              textDecoration: 'none',
+            }}
+          >
+            Clarit Studio ↗
+          </a>
         </div>
 
         {/* Nav */}
