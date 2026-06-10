@@ -29,7 +29,7 @@ export default async function Home() {
     title: p.title,
     category: p.category,
     slug: p.slug,
-    coverImage: p.coverImage ? urlFor(p.coverImage).width(800).url() : undefined,
+    coverImage: (p.coverImage && p.coverImage.asset) ? urlFor(p.coverImage).width(800).url() : undefined,
   }))
 
   return (
