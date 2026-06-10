@@ -24,12 +24,19 @@ export default async function Home() {
     projects = []
   }
 
+  const STATIC_COVERS: Record<string, string> = {
+    precision: '/precision/Cover.png',
+  }
+
   const gridProjects: GridProject[] = projects.map((p) => ({
     _id: p._id,
     title: p.title,
     category: p.category,
     slug: p.slug,
-    coverImage: (p.coverImage && p.coverImage.asset) ? urlFor(p.coverImage).width(800).url() : undefined,
+    coverImage:
+      (p.coverImage && p.coverImage.asset)
+        ? urlFor(p.coverImage).width(800).url()
+        : STATIC_COVERS[p.slug.current] ?? undefined,
   }))
 
   return (
