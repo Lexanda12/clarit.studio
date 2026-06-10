@@ -63,7 +63,7 @@ function StagePair({
             style={{
               position: 'relative',
               width: '100%',
-              aspectRatio: '3/4',
+              aspectRatio: '4/3',
               borderRadius: '4px',
               overflow: 'hidden',
               boxShadow: '0 8px 40px rgba(0,0,0,0.4)',
@@ -288,20 +288,38 @@ export default function PrecisionCaseStudy() {
           </div>
         </div>
         
-        <a
-          href="https://app.tryprecisioncare.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            fontSize: '13px',
-            color: 'var(--text-primary)',
-            borderBottom: '1px solid var(--text-muted)',
-            paddingBottom: '2px',
-            textDecoration: 'none',
-          }}
-        >
-          View live — app.tryprecisioncare.com ↗
-        </a>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <a
+            href="https://app.tryprecisioncare.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontSize: '13px',
+              color: 'var(--text-primary)',
+              borderBottom: '1px solid var(--text-muted)',
+              paddingBottom: '2px',
+              textDecoration: 'none',
+              width: 'fit-content',
+            }}
+          >
+            Launch PWA — app.tryprecisioncare.com ↗
+          </a>
+          <a
+            href="https://www.tryprecisioncare.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontSize: '13px',
+              color: 'var(--text-primary)',
+              borderBottom: '1px solid var(--text-muted)',
+              paddingBottom: '2px',
+              textDecoration: 'none',
+              width: 'fit-content',
+            }}
+          >
+            Visit website — tryprecisioncare.com ↗
+          </a>
+        </div>
       </div>
     </>
   )

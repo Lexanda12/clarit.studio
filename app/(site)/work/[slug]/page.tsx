@@ -30,7 +30,22 @@ export default async function ProjectPage({
     ...(project.services
       ? [{ label: 'Services', value: project.services }]
       : []),
-    ...(project.liveUrl
+    ...(slug === 'precision'
+      ? [
+          {
+            label: 'App',
+            value: 'app.tryprecisioncare.com',
+            isLink: true,
+            href: 'https://app.tryprecisioncare.com',
+          },
+          {
+            label: 'Website',
+            value: 'tryprecisioncare.com',
+            isLink: true,
+            href: 'https://www.tryprecisioncare.com',
+          },
+        ]
+      : project.liveUrl
       ? [
           {
             label: 'Live',
