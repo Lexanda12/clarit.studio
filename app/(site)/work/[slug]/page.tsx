@@ -39,7 +39,7 @@ export default async function ProjectPage({
       </div>
       <div>
         {/* Hero image */}
-        {project.coverImage && (
+        {project.coverImage && project.coverImage.asset ? (
           <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderBottom: '1px solid var(--border)' }}>
             <Image
               src={urlFor(project.coverImage).width(1600).url()}
@@ -48,6 +48,22 @@ export default async function ProjectPage({
               style={{ objectFit: 'cover' }}
               priority
             />
+          </div>
+        ) : (
+          <div
+            style={{
+              width: '100%',
+              aspectRatio: '16/9',
+              backgroundColor: 'var(--bg-hover)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderBottom: '1px solid var(--border)',
+            }}
+          >
+            <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
+              {project.title ? project.title.toLowerCase() : 'project'} — hero screenshot
+            </span>
           </div>
         )}
 

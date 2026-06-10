@@ -37,17 +37,36 @@ export default function CaseStudyGallery({ images }: CaseStudyGalleryProps) {
         >
           {row.map((item) => (
             <div key={item._key} style={{ backgroundColor: 'var(--bg-base)', position: 'relative' }}>
-              <div style={{ position: 'relative', width: '100%', aspectRatio: row.length === 2 ? '4/3' : '16/9' }}>
-                <Image
-                  src={urlFor(item.image).width(1200).url()}
-                  alt={item.caption ?? ''}
-                  fill
-                  style={{ objectFit: 'cover' }}
-                />
-              </div>
-              {item.caption && (
-                <div style={{ padding: '8px 0 12px', fontSize: '11px', color: 'var(--text-muted)' }}>
-                  {item.caption}
+              {item.image && item.image.asset ? (
+                <>
+                  <div style={{ position: 'relative', width: '100%', aspectRatio: row.length === 2 ? '4/3' : '16/9' }}>
+                    <Image
+                      src={urlFor(item.image).width(1200).url()}
+                      alt={item.caption ?? ''}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
+                  {item.caption && (
+                    <div style={{ padding: '8px 0 12px', fontSize: '11px', color: 'var(--text-muted)' }}>
+                      {item.caption}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div
+                  style={{
+                    backgroundColor: 'var(--bg-hover)',
+                    aspectRatio: row.length === 2 ? '4/3' : '16/9',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: row.length === 2 ? undefined : '1px solid var(--border)',
+                  }}
+                >
+                  <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
+                    {item.caption ?? 'Placeholder'}
+                  </span>
                 </div>
               )}
             </div>
