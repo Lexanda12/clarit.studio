@@ -34,7 +34,12 @@ export const projectBySlugQuery = groq`
     summary,
     services,
     stack,
-    featured
+    featured,
+    stats[] {
+      number,
+      label
+    },
+    backedBy
   }
 `
 

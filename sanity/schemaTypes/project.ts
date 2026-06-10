@@ -135,6 +135,29 @@ export const project = defineType({
       type: 'number',
       title: 'Display Order',
     }),
+    defineField({
+      name: 'stats',
+      type: 'array',
+      title: 'Stats / Numbers',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({ name: 'number', type: 'string', title: 'Value (e.g. 400+)' }),
+            defineField({ name: 'label', type: 'string', title: 'Label (e.g. Patients)' }),
+          ],
+          preview: {
+            select: { title: 'number', subtitle: 'label' },
+          },
+        },
+      ],
+    }),
+    defineField({
+      name: 'backedBy',
+      type: 'array',
+      title: 'Backed By / Accelerators',
+      of: [{ type: 'string' }],
+    }),
   ],
   orderings: [
     {

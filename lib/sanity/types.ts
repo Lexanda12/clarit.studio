@@ -38,6 +38,8 @@ export interface Project {
   stack?: string[]
   featured?: boolean
   order?: number
+  stats?: Array<{ number: string; label: string }>
+  backedBy?: string[]
 }
 
 export interface ProjectList {

@@ -111,6 +111,70 @@ export default async function ProjectPage({
             </div>
           )}
 
+          {/* Stats / Numbers */}
+          {project.stats && project.stats.length > 0 && (
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: `repeat(${project.stats.length}, 1fr)`,
+                gap: '1px',
+                backgroundColor: 'var(--border)',
+                marginBottom: '48px',
+              }}
+            >
+              {project.stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  style={{
+                    backgroundColor: 'var(--bg-base)',
+                    padding: '24px 16px',
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: '24px',
+                      color: 'var(--text-primary)',
+                      fontWeight: 400,
+                      marginBottom: '4px',
+                    }}
+                  >
+                    {stat.number}
+                  </div>
+                  <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Accelerators / Backed by */}
+          {project.backedBy && project.backedBy.length > 0 && (
+            <div style={{ marginBottom: '48px' }}>
+              <div
+                style={{
+                  fontSize: '11px',
+                  color: 'var(--text-muted)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  marginBottom: '12px',
+                }}
+              >
+                Backed by
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                {project.backedBy.map((org) => (
+                  <div
+                    key={org}
+                    style={{ fontSize: '13px', color: 'var(--text-secondary)' }}
+                  >
+                    {org}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Live link */}
           {project.liveUrl && (
             <a
