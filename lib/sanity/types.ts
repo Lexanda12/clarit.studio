@@ -10,6 +10,19 @@ export interface SanityImage {
   }
 }
 
+export interface GalleryImage {
+  _key: string
+  image: SanityImage
+  caption?: string
+  span?: 'full' | 'half'
+}
+
+export interface OverviewSection {
+  _key: string
+  heading: string
+  body: string
+}
+
 export interface Project {
   _id: string
   title: string
@@ -17,12 +30,23 @@ export interface Project {
   category: string
   year: number
   coverImage?: SanityImage
+  gallery?: GalleryImage[]
+  overview?: OverviewSection[]
   liveUrl?: string
   summary?: string
   services?: string[]
   stack?: string[]
   featured?: boolean
   order?: number
+}
+
+export interface ProjectList {
+  _id: string
+  title: string
+  slug: SanitySlug
+  category: string
+  coverImage?: SanityImage
+  featured?: boolean
 }
 
 export interface Post {

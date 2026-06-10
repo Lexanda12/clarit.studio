@@ -27,6 +27,84 @@ export const project = defineType({
       title: 'Cover Image',
       options: { hotspot: true },
     }),
+    defineField({
+      name: 'gallery',
+      type: 'array',
+      title: 'Case Study Gallery',
+      description: 'Images shown in the case study page in order',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'image',
+              type: 'image',
+              title: 'Image',
+              options: { hotspot: true },
+            }),
+            defineField({
+              name: 'caption',
+              type: 'string',
+              title: 'Caption',
+              description: 'Optional label shown below the image',
+            }),
+            defineField({
+              name: 'span',
+              type: 'string',
+              title: 'Width',
+              description: 'How wide this image appears',
+              options: {
+                list: [
+                  { title: 'Full width', value: 'full' },
+                  { title: 'Half width (left)', value: 'half' },
+                ],
+                layout: 'radio',
+              },
+              initialValue: 'full',
+            }),
+          ],
+          preview: {
+            select: {
+              title: 'caption',
+              media: 'image',
+            },
+            prepare({ title, media }) {
+              return {
+                title: (title as string | undefined) || 'Untitled image',
+                media,
+              }
+            },
+          },
+        },
+      ],
+    }),
+    defineField({
+      name: 'overview',
+      type: 'array',
+      title: 'Case Study Overview',
+      description: 'The written sections of the case study',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'heading',
+              type: 'string',
+              title: 'Section Heading',
+            }),
+            defineField({
+              name: 'body',
+              type: 'text',
+              title: 'Body',
+              rows: 4,
+            }),
+          ],
+          preview: {
+            select: { title: 'heading' },
+          },
+        },
+      ],
+    }),
     defineField({ name: 'liveUrl', type: 'url', title: 'Live URL' }),
     defineField({
       name: 'summary',

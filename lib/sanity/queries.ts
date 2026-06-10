@@ -6,8 +6,34 @@ export const projectsQuery = groq`
     title,
     slug,
     category,
+    coverImage,
+    featured
+  }
+`
+
+export const projectBySlugQuery = groq`
+  *[_type == "project" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    category,
     year,
     coverImage,
+    gallery[] {
+      _key,
+      image,
+      caption,
+      span
+    },
+    overview[] {
+      _key,
+      heading,
+      body
+    },
+    liveUrl,
+    summary,
+    services,
+    stack,
     featured
   }
 `

@@ -1,6 +1,6 @@
 import { client } from '@/lib/sanity/client'
 import { projectsQuery } from '@/lib/sanity/queries'
-import { Project } from '@/lib/sanity/types'
+import { ProjectList } from '@/lib/sanity/types'
 import WorkGrid from '@/components/work/WorkGrid'
 import { urlFor } from '@/lib/sanity/image'
 
@@ -16,10 +16,10 @@ interface GridProject {
 }
 
 export default async function Home() {
-  let projects: Project[] = []
+  let projects: ProjectList[] = []
 
   try {
-    projects = await client.fetch<Project[]>(projectsQuery)
+    projects = await client.fetch<ProjectList[]>(projectsQuery)
   } catch {
     projects = []
   }
